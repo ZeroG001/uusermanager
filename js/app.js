@@ -47,8 +47,18 @@
 					console.log(lister[i]);
 					data[lister[i].name] = lister[i].value;
 				}
-				
-				console.log(data);
+	
+				$.ajax({
+					type: "POST",
+					url: "src/controllers/create_user.php",
+					data: data,
+					success: function(data){
+						$(".alert").html(data);
+					},
+					error: function(){
+						$(".alert").html("<h1> It Didn't work </h1>");
+					}
+				});
 		  		
 			});
 		});
