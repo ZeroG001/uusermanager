@@ -16,6 +16,7 @@ try {
 	foreach ($results as $key => $value) {
 		echo "<ul>";
 		echo "<li>";
+		echo '<div class="agent_result" id="'. $value['paynum'] .'" Hello </div>';
 		echo $value['username'];
 		echo "</li>";
 		echo "</ul>";
