@@ -25,29 +25,39 @@
 			$.ajax({
 
 				type	: "GET",
-				url	    : "src/actions/search.php",
+				url	    : $('.search-form').attr('action'),
 				data    : {q: data},
 				timeout : 2000,
 
 				beforeSend: function(){
+					// Before anything is sent out, disable search button 
      				$(".search-button").prop('disabled', true);
      			},
-				success: function( data ){
-					$(".result-area").html(data);
+				success: function( results ){
+
+					// Show results in Search Results area and enable the button
+
+					$(".result-area").html( results );
 					$(".search-button").prop('disabled', false);
 
-					// Return form if results
-					$(".agent_result").click(function(){
-						var userid = $(this).attr("id");
-						User.showUser(userid);
+					// If agent-result link is clicked. run show uuser
+					$(".agent-result a").click(function( event ){
+
+						var url = $( this ).attr( "href" );
+						var userid = $( this ).attr( "id" );
+
+						event.preventDefault();
+						User.showUser( url );
+
+						
 					});
 
-					$("a").on("click", function( event ){
-						event.preventDefault();
-						alert("ya got mt");
-						var url = $( this ).attr("href");
-						User.updateUser( url );
-					});
+					// $("a").on("click", function( event ){
+						
+						
+					// 	var url = $( this ).attr("href");
+					// 	User.updateUser( url );
+					// });
 					
 				},
 				error: function(JqXHR, testStatus, errorThrown) {
@@ -57,18 +67,30 @@
 
 
 		},
-		updateUser:function( url ){
+		showUser:function( url ){
 			//ajax. update user user based on ID. Were going to update all of the data. Kinda depends on what the company database is looking like.
 
-					
-					console.log(url);
-					$('.form-area').attr("action", "http://10.9.64.84");
+					//Getting ready to update the user by changing the form action
+					// $('.form-area').show();
+					// $('.form-area').attr("action", "http://10.9.64.84/uusermanager/show.php");
 
 					$.ajax({
-					type: "GET",
-					url: url,
-					success: function(data){
-						$(".alert").html(data);
+
+						type: "GET",
+						url	: url,
+
+					success	: function( results ){
+							var json = JSON.parse( results );
+							console.log(json);
+						$('.form-area').show();
+						$('.new_user_form').attr("action", "http://10.9.63.84/uusermanager/src/actions/update.php");
+
+						$('.new_user_form #username').val(json.fname);
+						// $('.new_user_form #username').val(json.userID);
+						// $('.new_user_form #username').val(json.email);
+						// $('.new_user_form #username').val(json.office);
+						// $('.new_user_form #username').val(json.role);
+
 					},
 					error: function(){
 						$(".alert").html("<h1> It Didn't work! </h1>");
@@ -78,18 +100,18 @@
 		},
 		createUser:function( data ){
 			$('.form-area').show();
-			$('.form-area').attr("action", "http://10.9.64.84/create.php");
+			$('.new_user_form').attr("action", "http://10.9.63.84/uusermanager/src/actions/create.php");
 			//ajax create a new user. You better check if that person already exists.
 			//check if the data is an object and that it has certain fields
-			$( "form" ).on( "submit", function( event ) {
+			$('form.new_user_form').submit( function( event ) {
 				event.preventDefault();
 				var items = $( this ).serializeArray();
-				var data  = serialToObj(items);
+				var data  = serialToObj( items );
 	
 				$.ajax({
 
 					type: "POST",
-					url	: "src/controllers/create_user.php",
+					url	: $(".new_user_form").attr("action"),
 					data: data,
 
 					success: function( data ){

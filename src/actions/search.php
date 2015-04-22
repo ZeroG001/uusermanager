@@ -61,8 +61,8 @@
 
  	<ul>
 		<li>
-			<div class="agent_result" id="123456"> 
-				<a href='http://192.168.1.212/login_system_2/src/actions/show.php?userId=123456'> Blayne Holland </a>
+			<div class="agent-result"> 
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'> Blayne Holland </a>
 			</div>
 		</li>
 	</ul>

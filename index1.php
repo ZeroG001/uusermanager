@@ -21,7 +21,7 @@
 
 			<div class="left-side col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-				<form class="search-form">
+				<form class="search-form" action="http://10.9.63.84/uusermanager/src/actions/search.php">
 					<button class="search-button"> Search </button> 
 					<input type="search" name="q" class="search-box">
 				</form>
@@ -41,29 +41,29 @@
 					<form method="POST" class="new_user_form" action="dynamic-action">
 						
 						<label for="username">Username</label>
-						<input type="text" name="username" value="" />
+						<input id="username" type="text" name="username" value="" />
 
 						<label for="password">password</label>
-						<input type="text" name="password" value="" />
+						<input id="password" type="text" name="password"  value="" />
 
 						<label for="licID">licID</label>
-						<input type="text" name="licID" value="" />
+						<input id="licID" type="text" name="licID" value="" />
 
 						<label for="paynum">Paynum</label>
-						<input type="text" name="paynum" value="" />
+						<input id="paynum" type="text" name="paynum" value="" />
 
 						<label for="role"> Role </label>
-						<select name="role">
+						<select id="role" name="role">
 							<option> agent </option>
 							<option> manager </option>
 							<option> admin </option>		
 						</select>
 
 						<label for="office">Office</label>
-						<select name="office">
-							<option> Office 1 </option>
-							<option> Office 2 </option>
-							<option> Office 3 </option>		
+						<select id="office" name="office">
+							<option value="1"> Office 1 </option>
+							<option value="2"> Office 2 </option>
+							<option value="3"> Office 3 </option>		
 						</select>
 
 						<label for="active"> Active? </label><br />
