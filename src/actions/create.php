@@ -31,11 +31,17 @@
 	 	//Add the user since the user does not already exist.
 	 	try {
 
-		 	$query = "UPDATE users SET username = 'Bllling' WHERE id = 24";
-		
+		 	$query = "INSERT INTO users (username,password,role,licID,office,paynum) VALUES (?,?,?,?,?,?)";
+		 	$stmt = $db->prepare($query);
+			$stmt->bindValue(1,$username);
+			$stmt->bindValue(2,$password);
+			$stmt->bindValue(3,$role);
+			$stmt->bindValue(4,$licID);
+			$stmt->bindValue(5,$office);
+			$stmt->bindValue(6,$paynum);
 			$stmt->execute();
 
-			echo "<p> User has been added updated</p>";
+			echo "<p> User has been added </p>";
 
 	 	} catch (Exception $e) {
 	 		echo "<p> Error Adding User to database </p>";

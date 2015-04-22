@@ -1,32 +1,29 @@
 <?php
-	// What do we want to get? Get the data we search for...Only...maybe later on show the top added users
-	//
-	require_once("../db_config.php");
-
-	if($_SERVER['REQUEST_METHOD'] == "GET" and isset($_GET['userId'])) {
+require_once("../db_config.php");
+	// Retreiving user information when userID is passed in
+	if($_SERVER["REQUEST_METHOD"] == "GET" and isset($_GET['userId'])) {
+		$query = "SELECT * FROM users WHERE id = ? LIMIT 1";
+		
 		$userId = $_GET['userId'];
 
-		$query = "SELECT * FROM users WHERE id = ? LIMIT 1"
-		$stmt = $db->prepare($query);
-		$stmt->bindValue(1,"userId");
-		$stmt->execute();
-		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		$db->close();
+		try {
+
+			$stmt = $db->prepare($query);
+			$stmt->bindValue(1,$userId);
+			$stmt->execute();
+			$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		} catch(Exception $e) {
+			echo "There was a problem retreving the user";
+		}
 	}
 
-	var_dump($results);	
-?>
+	foreach ($results as $key => $value) {
 
-<style>
-	input[type='text'] {display: block;}
-	select {display: block;}
-	
-</style>
-
-<form method="POST" class="update_user_form">
+		echo '<form method="POST"  class="update_user_form">
 	
 	<label for="username">Username</label>
-	<input type="text" name="username" value="" />
+	<input type="text" name="username" value="<?php $value["username"] ?>" />
 
 	<label for="password">password</label>
 	<input type="text" name="password" value="" />
@@ -56,6 +53,7 @@
 	<input type="radio" name="active" value="-1"> No </input>
 	<input type="submit"> go </input>
 
-	<input type="text" value="" />
-
-</form>
+</form>';
+}
+		
+?>

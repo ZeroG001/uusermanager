@@ -1,11 +1,29 @@
 (function($){
 
+	// Take All Elements Passed in and serialize the values
+	function serialToObj(formInputs){
+		console.log(formInputs);
+		obj = {};
+		for (i = 0; i < formInputs.length; i++) {
+			 //this needs to be moved
+			console.log(formInputs[i]);
+			obj[formInputs[i].name] = formInputs[i].value;
+		}
+		console.log(obj);
+
+		return obj;
+	}
+
 	var User = {
-		getUser:function( data ){
-			var data = null;
+		searchUser:function( data ){
+			if( !data ) {
+				var data = null;
+			} 
+			
 			$.ajax({
 				type: "GET",
-				url: "src/controllers/get_users.php",
+				url: "src/actions/search.php",
+				data: {q: data},
 				timeout: 2000,
 				beforeSend: function(){
      				$(".search-button").prop('disabled', true);
@@ -15,58 +33,51 @@
 					$(".search-button").prop('disabled', false);
 
 					$(".agent_result").click(function(){
-						User.updateUser();
+						var userid = $(this).attr("id");
+						User.showUser(userid);
+					});
+
+					$("a").on("click", function( event ){
+						event.preventDefault();
+						alert("ya got mt");
+						var url = $( this ).attr("href");
+						User.updateUser( url );
 					});
 					
 				},
 				error: function(JqXHR, testStatus, errorThrown) {
 					alert("There was an issue connecting to the database");
    				}
-			});		
+			});	
+
+
 		},
-		updateUser:function( data ){
+		updateUser:function( url ){
 			//ajax. update user user based on ID. Were going to update all of the data. Kinda depends on what the company database is looking like.
-			$(".form-area").load("src/templates/new_form.html", function(){
 
+					
+					console.log(url);
 
-			$( "form" ).on( "submit", function( event ) {
+					$.ajax({
+					type: "GET",
+					url: url,
+					success: function(data){
+						$(".alert").html(data);
+					},
+					error: function(){
+						$(".alert").html("<h1> It Didn't work! </h1>");
+					}
+				});
 
-				var lister = $( this ).serializeArray();
-				var data = {};
-				for (i = 0; i < lister.length; i++) {
-					event.preventDefault(); //this needs to be moved
-					console.log(lister[i]);
-					data[lister[i].name] = lister[i].value;
-				}
-	
-				// $.ajax({
-				// 	type: "POST",
-				// 	url: "src/controllers/update_user.php",
-				// 	data: data,
-				// 	success: function(data){
-				// 		$(".alert").html(data);
-				// 	},
-				// 	error: function(){
-				// 		$(".alert").html("<h1> It Didn't work </h1>");
-				// 	}
-				// });
-		  		
-			});
-		});
 		},
 		createUser:function( data ){
+			$('.form-area').show();
 			//ajax create a new user. You better check if that person already exists.
 			//check if the data is an object and that it has certain fields
-			$(".form-area").load("src/templates/new_form.html", function(){
 			$( "form" ).on( "submit", function( event ) {
-
-				var lister = $( this ).serializeArray();
-				var data = {};
-				for (i = 0; i < lister.length; i++) {
-					event.preventDefault(); //this needs to be moved
-					console.log(lister[i]);
-					data[lister[i].name] = lister[i].value;
-				}
+				event.preventDefault();
+				var items = $( this ).serializeArray();
+				var data  = serialToObj(items);
 	
 				$.ajax({
 					type: "POST",
@@ -81,23 +92,23 @@
 				});
 		  		
 			});
-		});
+	
 		}
 	}; //end user object
 
-	$(".search-button").click(function(){
-		User.getUser("query"); 
+	$('.form-area').hide();
+
+	$("form.search-form").submit(function( event ){
+		event.preventDefault();
+		var query = $(".search-box").val()
+		User.searchUser(query); 
+
 	});
 
 	$(".new-user").click(function(){
 		User.createUser();	
 	});
 
-
 	
-
-
-
-
 
 })(jQuery);
