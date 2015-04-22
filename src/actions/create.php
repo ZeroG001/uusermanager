@@ -26,6 +26,7 @@
 
 	 	} catch (Exception $e) {
 	 		// For some reason exit() triggers this...you wouldn't really know what the matter is...
+	 		die("There was a problem trying to grab the paynumber");
 	 	}
 
 	 	//Add the user since the user does not already exist.

@@ -16,15 +16,19 @@
 
 	var User = {
 		searchUser:function( data ){
+
 			if( !data ) {
+
 				var data = null;
 			} 
 			
 			$.ajax({
-				type: "GET",
-				url: "src/actions/search.php",
-				data: {q: data},
-				timeout: 2000,
+
+				type	: "GET",
+				url	    : "src/actions/search.php",
+				data    : {q: data},
+				timeout : 2000,
+
 				beforeSend: function(){
      				$(".search-button").prop('disabled', true);
      			},
@@ -32,6 +36,7 @@
 					$(".result-area").html(data);
 					$(".search-button").prop('disabled', false);
 
+					// Return form if results
 					$(".agent_result").click(function(){
 						var userid = $(this).attr("id");
 						User.showUser(userid);
@@ -57,6 +62,7 @@
 
 					
 					console.log(url);
+					$('.form-area').attr("action", "http://10.9.64.84");
 
 					$.ajax({
 					type: "GET",
@@ -72,6 +78,7 @@
 		},
 		createUser:function( data ){
 			$('.form-area').show();
+			$('.form-area').attr("action", "http://10.9.64.84/create.php");
 			//ajax create a new user. You better check if that person already exists.
 			//check if the data is an object and that it has certain fields
 			$( "form" ).on( "submit", function( event ) {
@@ -80,13 +87,18 @@
 				var data  = serialToObj(items);
 	
 				$.ajax({
+
 					type: "POST",
-					url: "src/controllers/create_user.php",
+					url	: "src/controllers/create_user.php",
 					data: data,
-					success: function(data){
+
+					success: function( data ){
+
 						$(".alert").html(data);
 					},
-					error: function(){
+
+					error: function() {
+
 						$(".alert").html("<h1> It Didn't work </h1>");
 					}
 				});
@@ -95,8 +107,6 @@
 	
 		}
 	}; //end user object
-
-	$('.form-area').hide();
 
 	$("form.search-form").submit(function( event ){
 		event.preventDefault();
