@@ -21,7 +21,7 @@
 
 			<div class="left-side col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-				<form class="search-form" action="http://10.9.63.84/uusermanager/src/actions/search.php">
+				<form class="search-form" action="http://192.168.1.212/uusermanager/src/actions/search.php" method="POST">
 					<button class="search-button"> Search </button> 
 					<input type="search" name="q" class="search-box">
 				</form>
@@ -38,7 +38,7 @@
 
 				<div class="form-area">
 
-					<form method="POST" class="new_user_form" action="dynamic-action">
+					<form method="POST" class="new_user_form" action="dynamic-action" id="form-template">
 						
 						<label for="username">Username</label>
 						<input id="username" type="text" name="username" value="" />
@@ -69,6 +69,8 @@
 						<label for="active"> Active? </label><br />
 						<input type="radio" name="active" value="0"> Yes </input>
 						<input type="radio" name="active" value="-1"> No </input>
+
+						<input type="text" name="userid" id="userid" />
 						<input type="submit"> go </input>
 
 					</form>

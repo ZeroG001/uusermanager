@@ -27,5 +27,5 @@
 	
 ?>
 
-{"fname" : "Blayne"}
+{"userid" : "123", "fname" : "Blayne", "email" : "ZeroG001@hotmail.com", "office" : "23"}
 
