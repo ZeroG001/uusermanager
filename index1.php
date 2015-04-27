@@ -18,7 +18,7 @@
 
 	<div class="container">
 
-		<h1> Users </h1>
+		<h1> Test 1 </h1>
 
 		<div class="row">
 
@@ -30,7 +30,7 @@
 				</div>
 
 			
-					<form class="search-form" action="http://192.168.1.212/uusermanager/src/actions/search.php" method="GET">
+					<form class="search-form" action="http://10.9.63.84/uusermanager/src/actions/search.php" method="GET">
 						<div class="search-input-wrapper">
 							<input type="text" name="q" class="search-box" placeholder="Search..." />
 							<input type="submit" class="search-button" value="" /> 
@@ -38,16 +38,16 @@
 					</form>
 			
 
-				<div class="agent-result">
+				<div class="search-results-wrapper">
 					<!-- Stuff that is produced by querys -->
 				</div>
 
 			</div>
 
 			<!--
-				# # # # # # # # # # # # # # #
-						User Form 
-				# # # # # # # # # # # # # # # 
+			 // ============================== //
+			 //			  User Form 		   //
+			 // ============================== //
 			 -->
 			<div class="right-side col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
@@ -55,25 +55,30 @@
 
 					<form method="POST" class="user-form" action="dynamic-action" id="form-template">
 
-						<center> <h3> Editing User </h3> </center>
+						<center> <h3> Editing Test </h3> </center>
 						
-						<label for="username">Username</label>
-						<input id="username" type="text" name="username" value="" />
+						<label for="fname">First Name</label>
+						<input id="fname" type="text" name="username" value="" />
+
+						<label for="lname">Last Name</label>
+						<input id="lname" type="text" name="username" value="" />
+
+						<label for="login">Lisence ID</label>
+						<input id="licID" type="text" name="licID" value="" />
+
 
 						<label for="password">Password</label>
 						<input id="password" type="text" name="password"  value="" />
 
-						<label for="licID">Lisence ID</label>
-						<input id="licID" type="text" name="licID" value="" />
-
+						
 						<label for="paynum">Paynum</label>
 						<input id="paynum" type="text" name="paynum" value="" />
 
 						<label for="role">Role</label>
 						<select id="role" name="role">
-							<option> agent </option>
-							<option> manager </option>
-							<option> admin </option>		
+							<option> Agent </option>
+							<option> Manager </option>
+							<option> Admin </option>		
 						</select>
 
 						<label for="office">Office</label>

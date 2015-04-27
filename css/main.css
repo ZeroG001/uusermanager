@@ -35,6 +35,9 @@
 		background-color: #E1E1E1;
 	}
 
+	/* Search Form Settings
+	-----------------------------*/
+
 	.search-form {
 		margin-top: 10px;
 	}
@@ -67,11 +70,37 @@
 		background-size: 20px;
 	}
 
-	/* Magnifying glass styles */
+	/* === Magnifying glass styles === */
 
 	.search-form .search-button:focus {
 		outline: 0;
 	}
+
+
+/*	User & Search Result Styles
+-------------------------------------*/
+
+.agent-result {
+
+    position: relative;
+    font-weight: bold;
+    color: #898992;
+    display: inline-block;
+    background: #DCDAD6;
+    width: 100%;
+    height: 70px;
+    padding: 8px;
+}
+
+.agent-result a {
+	display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+.agent-result a:hover {
+	text-decoration: none;
+}
 
 
 

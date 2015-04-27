@@ -1,11 +1,12 @@
-(function($){
+(function($) {
 
 	// ======================== //
 	// 		Config Variables    //
 	// ======================== //
 
 	var s = {
-		"droot" : "192.168.1.212",
+		"droot" : "10.9.63.84",
+		"duser" : "/localhost/10.9.0.12"
 	};
 
 	// ============================================= //
@@ -61,11 +62,11 @@
 
 					// Show results in Search Results area and enable the button
 
-					$(".agent-result").html( results );
+					$(".search-results-wrapper").html( results );
 					$(".search-button").prop('disabled', false);
 
-					// If agent-result link is clicked. run show uuser
-					$(".agent-result a").click(function( event ){
+					// If search-results-wrapper link is clicked. run show uuser
+					$(".search-results-wrapper a").click(function( event ){
 
 						event.preventDefault();
 
