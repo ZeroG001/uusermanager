@@ -24,8 +24,8 @@
 // 		echo $key.":".$value; 
 // }
 // 	echo "{"
-	
+	echo '{"userid" : "123", "fname" : "Blayne", "email" : "ZeroG001@hotmail.com", "office" : "23"}';
 ?>
 
-{"userid" : "123", "fname" : "Blayne", "email" : "ZeroG001@hotmail.com", "office" : "23"}
+
 

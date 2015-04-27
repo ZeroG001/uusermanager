@@ -8,22 +8,33 @@
 		"droot" : "192.168.1.212",
 	};
 
+	// ============================================= //
+	//					Functions					 //
+	// ============================================= //
 
 	// Take All Elements Passed in and serialize the values
-	function serialToObj(formInputs){
+	function serialToObj( formInputs ) {
 
 		console.log(formInputs);
 
 		obj = {};
-		for (i = 0; i < formInputs.length; i++) {
-			console.log(formInputs[i]); // Show input submitted
-			obj[formInputs[i].name] = formInputs[i].value;
+
+		for ( i = 0; i < formInputs.length; i++ ) {
+
+			console.log(formInputs[i]); // Log the inputs submittd for debugging
+			obj[formInputs[i].name] = formInputs[i].value; // Convert searlized items to jobject
+
 		}
 
 		console.log(obj);
 
 		return obj;
 	}
+
+
+	// ==================================================== //
+	//  			User Object & Actions                   //
+	// ==================================================== //
 
 	var User = {
 
@@ -36,7 +47,7 @@
 			
 			$.ajax({
 
-				type	: "POST",
+				type	: "GET",
 				url	    : $('.search-form').attr('action'),
 				data    : {q: data},
 				timeout : 2000,
@@ -50,16 +61,18 @@
 
 					// Show results in Search Results area and enable the button
 
-					$(".result-area").html( results );
+					$(".agent-result").html( results );
 					$(".search-button").prop('disabled', false);
 
 					// If agent-result link is clicked. run show uuser
 					$(".agent-result a").click(function( event ){
 
-						var url = $( this ).attr( "href" );
-						// var userid = $( this ).attr( "id" );
-
 						event.preventDefault();
+
+						//URL is what was in the link. Should contain show.php with USERID
+						var url = $( this ).attr( "href" );
+
+						
 						User.showUser( url );
 
 						
@@ -70,62 +83,64 @@
 				error: 	function(JqXHR, testStatus, errorThrown) {
 
 					$(".search-button").prop('disabled', false);
-					alert("There was an issue connecting to the database");
+					alert("Timeout! ");
    				}
 
 			});	
 
 
 		},
-		showUser: function( url ){
+
+		showUser: function( url ) {
 
 			//ajax. update user user based on ID. Were going to update all of the data. Kinda depends on what the company database is looking like.
 
-					$.ajax({
+			$.ajax({
 
-						type: "GET",
-						url	: url,
+				type: "GET",
+				url	: url,
 
-					success	: function( results ){
+				success	: function( results ) {
 
-						var json = JSON.parse( results );
-						console.log(json);
+					json = JSON.parse( results );
+					console.log(json);
 
-						$('.form-area').show();
-						$('.new_user_form #userid').val(json.userid);
-						$('.new_user_form #username').val(json.fname);
+					$('.form-area').show();
+					$('.user-form #userid').val(json.userid);
+					$('.user-form #username').val(json.fname);
 
-						$('.new_user_form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/update.php");
+					$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/update.php");
+	
+			},
 
-						
-					},
-					error: function(){
-						$(".alert").html("<h1> It Didn't work! </h1>");
-					}
-				});
+				error: function(){
+					$(".alert").html("<h1> It Didn't work! </h1>");
+				}
 
+			});
 		},
-		createUser:function( data ){
-			document.getElementById("form-template").reset();
-			$('.form-area').show();
-			$('.new_user_form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/create.php");
+
+		createUser:function( data ) {
+
 			//ajax create a new user. You better check if that person already exists.
 			//check if the data is an object and that it has certain fields
+
+			document.getElementById("form-template").reset();
+			$('.form-area').show();
+			$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/create.php");
+			
 		}
+
 	}; //end user object
 
 
-	// When Search form is submitted then send data to search.cfm
-
-	$("form.search-form").submit(function( event ){
-		event.preventDefault();
-		var query = $(".search-box").val()
-		User.searchUser(query); 
-	});
+	// ========================================================== //
+	// 						Other actions						  //
+	// ========================================================== //
 
 	// When user submits form then send data over to eaither update.cfm or create.cfm
 
-	$('form.new_user_form').submit( function( event ) {
+	$('form.user-form').submit( function( event ) {
 				event.preventDefault();
 				var items = $( this ).serializeArray();
 				var data  = serialToObj( items );
@@ -133,7 +148,7 @@
 				$.ajax({
 
 					type: "POST",
-					url	: $(".new_user_form").attr("action"),
+					url	: $(".user-form").attr("action"),
 					data: data,
 
 					success: function( data ){
@@ -155,6 +170,15 @@
 	$(".new-user").click(function(){
 		User.createUser();	
 	});
+
+	// When Search form is submitted then send data to search.cfm
+
+	$("form.search-form").submit(function( event ){
+		event.preventDefault();
+		var query = $(".search-box").val()
+		User.searchUser(query); 
+	});
+
 
 	
 

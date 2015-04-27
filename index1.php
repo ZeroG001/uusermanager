@@ -17,42 +17,59 @@
 	<div class="alert"> <!-- This area shows alert from Ajax Requests --> </div>
 
 	<div class="container">
+
+		<h1> Users </h1>
+
 		<div class="row">
+
 
 			<div class="left-side col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-				<form class="search-form" action="http://192.168.1.212/uusermanager/src/actions/search.php" method="POST">
-					<button class="search-button"> Search </button> 
-					<input type="search" name="q" class="search-box">
-				</form>
+				<div class="actions-container">
+					<button class="new-user">  + Add User </button>
+				</div>
 
-				<button class="new-user"> Add User </button>
+			
+					<form class="search-form" action="http://192.168.1.212/uusermanager/src/actions/search.php" method="GET">
+						<div class="search-input-wrapper">
+							<input type="text" name="q" class="search-box" placeholder="Search..." />
+							<input type="submit" class="search-button" value="" /> 
+						</div>
+					</form>
+			
 
-				<div class="result-area">
+				<div class="agent-result">
 					<!-- Stuff that is produced by querys -->
 				</div>
 
 			</div>
 
+			<!--
+				# # # # # # # # # # # # # # #
+						User Form 
+				# # # # # # # # # # # # # # # 
+			 -->
 			<div class="right-side col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
 				<div class="form-area">
 
-					<form method="POST" class="new_user_form" action="dynamic-action" id="form-template">
+					<form method="POST" class="user-form" action="dynamic-action" id="form-template">
+
+						<center> <h3> Editing User </h3> </center>
 						
 						<label for="username">Username</label>
 						<input id="username" type="text" name="username" value="" />
 
-						<label for="password">password</label>
+						<label for="password">Password</label>
 						<input id="password" type="text" name="password"  value="" />
 
-						<label for="licID">licID</label>
+						<label for="licID">Lisence ID</label>
 						<input id="licID" type="text" name="licID" value="" />
 
 						<label for="paynum">Paynum</label>
 						<input id="paynum" type="text" name="paynum" value="" />
 
-						<label for="role"> Role </label>
+						<label for="role">Role</label>
 						<select id="role" name="role">
 							<option> agent </option>
 							<option> manager </option>
@@ -66,12 +83,16 @@
 							<option value="3"> Office 3 </option>		
 						</select>
 
-						<label for="active"> Active? </label><br />
-						<input type="radio" name="active" value="0"> Yes </input>
-						<input type="radio" name="active" value="-1"> No </input>
+						
+						<input class="user-active-radio" id="user-active" type="radio" name="active" value="0" />
+						<label for="user-active"> Active </label>
+						
+						<input class="user-active-radio" id="user-inactive" type="radio" name="active" value="-1" />
+						<label for="user-inactive"> Inactive </label>
 
+						<label for="userid"> UserID </label>
 						<input type="text" name="userid" id="userid" />
-						<input type="submit"> go </input>
+						<input type="submit" /> 
 
 					</form>
 					
