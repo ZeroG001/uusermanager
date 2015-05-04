@@ -5,8 +5,13 @@
 	// ======================== //
 
 	var s = {
-		"droot" : "10.9.63.84",
-		"duser" : "/localhost/10.9.0.12"
+		"droot" : "192.168.1.212",
+		"duser" : "/localhost/10.9.0.12",
+		"date"	: function() { 
+			var date = new Date()
+			var fdate = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear()
+			return fdate;
+		}
 	};
 
 	// ============================================= //
@@ -74,7 +79,7 @@
 						var url = $( this ).attr( "href" );
 
 						
-						User.showUser( url );
+						User.editUser( url );
 
 						
 					});
@@ -92,7 +97,7 @@
 
 		},
 
-		showUser: function( url ) {
+		editUser: function( url ) {
 
 			//ajax. update user user based on ID. Were going to update all of the data. Kinda depends on what the company database is looking like.
 
@@ -109,6 +114,13 @@
 					$('.form-area').show();
 					$('.user-form #userid').val(json.userid);
 					$('.user-form #username').val(json.fname);
+
+					if ( json.inactive == "1" ) {
+						$('.user-form #user-active').prop('checked', true);
+						
+					} else if(json.inactive == "0") {
+						$('.user-form #user-inactive').prop('checked', true);
+					}
 
 					$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/update.php");
 	
@@ -136,10 +148,12 @@
 
 
 	// ========================================================== //
-	// 						Other actions						  //
+	// 						Main event							  //
 	// ========================================================== //
 
 	// When user submits form then send data over to eaither update.cfm or create.cfm
+
+	$('#date-entered').val(s.date);
 
 	$('form.user-form').submit( function( event ) {
 				event.preventDefault();

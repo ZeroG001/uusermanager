@@ -95,5 +95,5 @@
 	//  	die();
 	// }
 
-	echo "USer has been updated";
+	echo "User has been updated";
 ?>
