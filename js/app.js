@@ -5,7 +5,7 @@
 	// ======================== //
 
 	var s = {
-		"droot" : "10.9.63.84",
+		"droot" : "64.9.203.51/MyWebLinks",
 		"duser" : "/localhost/10.9.0.12",
 		"date"	: function() { 
 			var date = new Date()
@@ -32,6 +32,7 @@
 
 		}
 
+		console.log("Results from serialToObj()")
 		console.log(obj);
 
 		return obj;
@@ -53,7 +54,7 @@
 			
 			$.ajax({
 
-				type	: "GET",
+				type	: "POST",
 				url	    : $('.search-form').attr('action'),
 				data    : {q: data},
 				timeout : 2000,
@@ -61,6 +62,7 @@
 				beforeSend: function() {
 					// Before anything is sent out, disable search button 
      				$(".search-button").prop('disabled', true);
+
      			},
 
 				success: 	function( results ) {
@@ -89,7 +91,7 @@
 				error: 	function(JqXHR, testStatus, errorThrown) {
 
 					$(".search-button").prop('disabled', false);
-					alert("Timeout! ");
+					alert(" Did not recieve search results fast enough or unable to contact database on REOWEB02 ");
    				}
 
 			});	
@@ -106,24 +108,66 @@
 				type: "GET",
 				url	: url,
 
+				beforeSend : function(){
+					$('.actions-form-status').html('<img class="loading-image" src="img/loading.png"> <span>Fetching info...</span>');
+				},
+
 				success	: function( results ) {
+					var json_result =  $($.parseHTML( results )).filter("#ajax-results").text();
 
-					json = JSON.parse( results );
-					console.log(json);
+					console.log("JSON Returned from User was");
+					console.log(json_result);
 
+					json = JSON.parse(json_result);
+					
+					document.getElementById("form-template").reset();
 					$('.form-area').show();
-					$('.actions-form-status').html("Editing User " + json.fname);
-					$('.user-form #userid').val(json.userid);
-					$('.user-form #username').val(json.fname);
 
-					if ( json.inactive == "1" ) {
-						$('.user-form #user-active').prop('checked', true);
-						
-					} else if(json.inactive == "0") {
-						$('.user-form #user-inactive').prop('checked', true);
+					//	EDIT User Form Elements
+					// ===============================================
+
+					setTimeout(function(){
+						$('.actions-form-status').html("Editing User - " + json.FirstName + " " + json.LastName);
+
+					
+
+					$('.user-form #FirstName').val(json.FirstName);
+					$('.user-form #LastName').val(json.LastName);
+					$('.user-form #UserID').val(json.UserID);
+
+					if ( json.OfficeID ) {
+						$('.user-form #OfficeID option[value='+json.OfficeID+'] ').prop("selected", true);
+					}
+					
+					$('.user-form #EmailAdd').val(json.EmailAdd);
+					$('.user-form #payNumber').val(json.payNumber);
+					$('.user-form #PWD').val(json.PWD);
+					$('.user-form #dateEntered').val(json.dateEntered);
+
+
+					if ( json.Role ) {
+						$('.user-form #Role option[value='+json.Role+'] ').prop("selected", true);
 					}
 
-					$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/update.php");
+					$('.user-form #User1').val(json.User1);
+					$('.user-form #AssociateCell').val(json.AssociateCell);
+
+					$('.user-form #pkeyid').val(json.pkeyid); // PRIMARY KEY IN DATABASE
+
+					if ( json.inactive == "0" ) {
+
+						$('.user-form #user-active').prop('checked', true);
+						
+					} else if(json.inactive == "1") {
+
+						$('.user-form #user-inactive').prop('checked', true);
+					}
+					// ===============================================
+
+				}, 1000); // SetTimeout Function End
+
+					/* This section declares the action of the form */
+					$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/actions/update.cfm");
 	
 			},
 
@@ -134,7 +178,7 @@
 			});
 		},
 
-		createUser:function( data ) {
+		createUser:	function( data ) {
 
 			//ajax create a new user. You better check if that person already exists.
 			//check if the data is an object and that it has certain fields
@@ -142,7 +186,7 @@
 			document.getElementById("form-template").reset();
 			$('.form-area').show();
 			$('.actions-form-status').html("New User");
-			$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/create.php");
+			$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/actions/create.cfm");
 			
 		}
 
@@ -157,6 +201,8 @@
 
 	$('#date-entered').val(s.date);
 
+	// CREATE OR EDIT USER
+
 	$('form.user-form').submit( function( event ) {
 				event.preventDefault();
 				var items = $( this ).serializeArray();
@@ -167,15 +213,20 @@
 					type: "POST",
 					url	: $(".user-form").attr("action"),
 					data: data,
+					timeout : 2000,
+
+					beforeSend : function(){
+						$('.actions-form-status').html('<img class="loading-image" src="img/loading.png"> <span>Performing Action...</span>');
+					},
 
 					success: function( data ){
 
-						$(".alert").html(data);
+						$(".actions-form-status").html(data);
 					},
 
 					error: function() {
 
-						$(".alert").html("<h1> It Didn't work </h1>");
+						$(".actions-form-status").html("Span Timeout");
 					}
 				});
 		  		
