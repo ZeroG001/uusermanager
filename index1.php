@@ -16,7 +16,7 @@
 
 	<div class="alert"> <!-- This area shows alert from Ajax Requests --> </div>
 
-	<div class="container">
+	<div class="container main-content-container">
 
 		<center> <h1> User Management System  </h1> </center>
 
@@ -66,7 +66,7 @@
 			<div class="right-side col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
 				<div class="actions-container">
-					<span> Editing User </span>
+					<span class="status-area"> Editing User </span>
 					<button class="new-user">  + Add User </button>
 				</div>
 
