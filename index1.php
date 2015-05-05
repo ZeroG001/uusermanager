@@ -18,7 +18,7 @@
 
 	<div class="container">
 
-		<center> <h1> User Management System  </h1> </center>
+		<center> <h1> Lerem Ipsum Form  </h1> </center>
 
 		<div class="row">
 
@@ -35,7 +35,7 @@
 				</div> -->
 
 			
-				<form class="search-form" action="http://192.168.1.212/uusermanager/src/actions/search.php" method="GET">
+				<form class="search-form" action="http://10.9.63.84/uusermanager/src/actions/search.php" method="GET">
 					<div class="search-input-wrapper">
 						<input type="text" name="q" class="search-box" placeholder="Search users..." />
 						<input type="submit" class="search-button" value="" /> 
@@ -66,7 +66,7 @@
 			<div class="right-side col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
 				<div class="actions-container">
-					<span> Editing User </span>
+					<span class="actions-form-status"> &nbsp; <!-- Editing / New User --> </span>
 					<button class="new-user">  + Add User </button>
 				</div>
 

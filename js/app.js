@@ -5,7 +5,7 @@
 	// ======================== //
 
 	var s = {
-		"droot" : "192.168.1.212",
+		"droot" : "10.9.63.84",
 		"duser" : "/localhost/10.9.0.12",
 		"date"	: function() { 
 			var date = new Date()
@@ -112,6 +112,7 @@
 					console.log(json);
 
 					$('.form-area').show();
+					$('.actions-form-status').html("Editing User " + json.fname);
 					$('.user-form #userid').val(json.userid);
 					$('.user-form #username').val(json.fname);
 
@@ -140,6 +141,7 @@
 
 			document.getElementById("form-template").reset();
 			$('.form-area').show();
+			$('.actions-form-status').html("New User");
 			$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/src/actions/create.php");
 			
 		}
