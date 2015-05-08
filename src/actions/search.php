@@ -60,20 +60,353 @@
 	// }
 ?>
 
+<div class="agent-result-header"> 
+		<div class="row">
+			<div class="hidden-xs hidden-sm hidden-md col-lg-12">
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						<span> Name </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						 <span> Lisence ID </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						  <span> Pay Number </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						 <span> Office Number </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						  <span> Role </span>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	
 	<div class="agent-result"> 
-		<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'> 
-			<span> Blayne Holland </span> <br />
-			<span> LIC# - 123456 </span> <br />
-			<span> Pay# - 12345 </span>
-		</a>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
 	</div>
 
 	<div class="agent-result"> 
-		<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'> 
-			<span> Blayne Holland </span> <br />
-			<span> LIC# - 123456 </span> <br />
-			<span> Pay# - 12345 </span>
-		</a>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="agent-result"> 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<a href='http://10.9.63.84/uusermanager/src/actions/show.php?userId=123456' id='id="123456"'>
+			
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						 <span class="agent-result-inline-header"> Full Name </span> <span> Blayne Holland </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Lisence ID  </span> <span> 123456 </span> 
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Pay Number </span> <span> 12345 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Office Number </span> <span> 13 </span>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+						<span class="agent-result-inline-header"> Role </span> Office Admininstrator </span>
+					</div>
+				</a>
+			</div>
+		</div>
 	</div>
 			
 

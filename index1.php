@@ -14,9 +14,9 @@
 
 <body>
 
-	<div class="container">
+	<div class="container main-content-container">
 
-		<center> <h3> Lerem Ipsum Form  </h3> </center>
+		<center> <h3> User Management System  </h3> </center>
 
 		<div class="row">
 
@@ -33,7 +33,7 @@
 				</div> -->
 
 			
-				<form class="search-form" action="http://64.9.203.51/MyWebLinks/uusermanager/actions/search.cfm" method="POST">
+				<form class="search-form" action="http://192.168.1.212/uusermanager/src/actions/search.php" method="POST">
 					<div class="search-input-wrapper">
 						<input type="text" name="q" class="search-box" placeholder="Search users..." />
 						<input type="submit" class="search-button" value="" /> 

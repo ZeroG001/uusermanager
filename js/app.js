@@ -107,9 +107,12 @@
 
 				type: "GET",
 				url	: url,
+				timeout: 5000,
 
 				beforeSend : function(){
 					$('.actions-form-status').html('<img class="loading-image" src="img/loading.png"> <span>Fetching info...</span>');
+					$('.form-area').removeClass("fade-in");
+					$('.form-area').addClass("fade-out");
 				},
 
 				success	: function( results ) {
@@ -127,6 +130,10 @@
 					// ===============================================
 
 					setTimeout(function(){
+
+						$('.form-area').removeClass("fade-out");
+						$('.form-area').addClass("fade-in");
+
 						$('.actions-form-status').html("Editing User - " + json.FirstName + " " + json.LastName);
 
 					
@@ -172,6 +179,9 @@
 			},
 
 				error: function(){
+					$('.form-area').show();
+					$('.form-area').removeClass("fade-out");
+						$('.form-area').addClass("fade-in");
 					$(".alert").html("<h1> It Didn't work! </h1>");
 				}
 
@@ -185,6 +195,7 @@
 
 			document.getElementById("form-template").reset();
 			$('.form-area').show();
+			$('.form-area').addClass("fade-in");
 			$('.actions-form-status').html("New User");
 			$('.user-form').attr("action", "http://"+s.droot+"/uusermanager/actions/create.cfm");
 			

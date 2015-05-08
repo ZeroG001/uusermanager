@@ -3,11 +3,12 @@
 
 .container {
 	font-family: 'Karla',Helvetica,Arial,sans-serif;
-	width: 1200px;
+	max-width: 1200px;
+	min-width: 750px;
 }
 
 .main-content-container {
-	background-color: #FAFAFA;
+	
 	padding: 20px;
 }
 
@@ -17,11 +18,19 @@
 	// -------------------------------- //
 */
 
-
+	.left-side {
+		
+	}
+	
 
 	
 	/* Search Form Settings
 	-----------------------------*/
+	.search-results-wrapper {
+		max-height: 724px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
 
 	.search-form {
 	position: relative;
@@ -70,6 +79,50 @@
 		outline: 0;
 	}
 
+	.agent-result-header {
+	    position: relative;
+	    font-weight: bold;
+	    color: #898992;
+	    display: inline-block;
+	    width: 100%;
+	    max-height: 116px;
+	    padding: 8px;
+	    margin-bottom: 8px;
+	   	border-bottom: 1px solid black; 
+	}
+
+	.agent-result-inline-header {
+		display: none;
+	}
+
+	@media screen and (max-width: 1200px) {
+		.agent-result-inline-header {
+			display: inline-block;
+			width: 120px;
+		}
+	}
+
+	.agent-result {
+	    position: relative;
+	    font-weight: bold;
+	    color: #898992;
+	    display: inline-block;
+	    background: #DCDAD6;
+	    width: 100%;
+	    max-height: 116px;
+	    padding: 8px;
+	    margin-bottom: 8px 
+	}
+
+	.agent-result a {
+		display: inline-block;
+	    width: 100%;
+	}
+
+	.agent-result a:hover {
+		text-decoration: none;
+	}
+
 
 /*	User & Search Result Styles
 -------------------------------------*/
@@ -103,27 +156,6 @@
 }
 
 
-.agent-result {
-    position: relative;
-    font-weight: bold;
-    color: #898992;
-    display: inline-block;
-    background: #DCDAD6;
-    width: 100%;
-    height: 116px;
-    padding: 8px;
-    margin-bottom: 8px 
-}
-
-.agent-result a {
-	display: inline-block;
-    height: 100%;
-    width: 100%;
-}
-
-.agent-result a:hover {
-	text-decoration: none;
-}
 
 .new-user {
 		position: absolute;
