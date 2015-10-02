@@ -55,5 +55,14 @@
 	//  	die();
 	// }
 
-echo "User has been created";
+header('Content-Type: application/json');
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	foreach ($_GET as $key => $value) {
+		$$key = $value;
+	}
+	echo "User has been created"
+	echo json_encode($_GET);
+}
+
 ?>
